@@ -14,7 +14,7 @@ navTag.addEventListener('dblclick', (event) => event.target.style.backgroundColo
 //keydown and up
 
 let body = document.querySelector('body');
-body.addEventListener('keydown', (event) => event.target.style.backgroundColor = 'red');
+body.addEventListener('keydown', (event) => event.target.style.backgroundColor = 'grey');
 body.addEventListener('keyup', (event) => event.target.style.backgroundColor = 'white');
 
 //wheel
@@ -31,22 +31,38 @@ BusBanner.addEventListener('drag' ,(event) => {
     event.target.style.transform = 'scale(0.75)'
 })
 
+//mouseover
+
 let header2 = document.querySelectorAll('.home .text-content h2');
-let buttons = document.querySelectorAll('.btn');
 
 for (i = 0; i < header2.length; i++) {
-    header2[i].addEventListener('select', function(e) {
-        e.target.style.color = 'red';
+    header2[i].addEventListener('mouseover', function(event) {
+        event.target.style.color = 'red';
         });
-    }
- 
+}
+
+//click
+let buttons = document.querySelectorAll('.btn');
+
 for (i=0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function(event) {
     event.target.style.background = 'red';
     event.target.style.color = 'green';
     body.classList.toggle('container-background');
+    event.stopPropagation()
     });
 }
+
+//resize
   
+window.addEventListener('resize', function alertMeOnce(){
+ alert("resizing the screen")
+window.removeEventListener('resize', alertMeOnce)
+});
 
+//load
 
+window.addEventListener('load', function alertMeOnce() {
+    alert('Page is fully loaded')
+    window.removeEventListener('load', alertMeOnce);
+});
