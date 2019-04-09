@@ -5,6 +5,7 @@ let navLogo = document.querySelector('.logo-heading');
 navLogo.addEventListener("mouseover", (event) => event.target.style.transform = "scale(2)");
 navLogo.addEventListener("mouseout", (event) => event.target.style.transform = "scale(1)");
 
+
 //dblclick
 
 let navTag = document.querySelector('.nav');
@@ -18,9 +19,9 @@ body.addEventListener('keyup', (event) => event.target.style.backgroundColor = '
 
 //wheel
 
-body.addEventListener('scrol', function alertMeOnce(){
+body.addEventListener('wheel', function alertMeOnce(){
     alert("SCROLING!!!!!");
-    body.removeEventListener('scrol', alertMeOnce);
+    body.removeEventListener('wheel', alertMeOnce);
   });
 
 // drag
@@ -40,9 +41,9 @@ for (i = 0; i < header2.length; i++) {
     }
  
 for (i=0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function(e) {
-    e.target.style.background = 'red';
-    e.target.style.color = 'green';
+    buttons[i].addEventListener('click', function(event) {
+    event.target.style.background = 'red';
+    event.target.style.color = 'green';
     body.classList.toggle('container-background');
     });
 }
