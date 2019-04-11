@@ -5,11 +5,21 @@ let navLogo = document.querySelector('.logo-heading');
 navLogo.addEventListener("mouseover", (event) => event.target.style.transform = "scale(2)");
 navLogo.addEventListener("mouseout", (event) => event.target.style.transform = "scale(1)");
 
-
 //dblclick
 
 let navTag = document.querySelector('.nav');
-navTag.addEventListener('dblclick', (event) => event.target.style.backgroundColor = 'yellow');
+navTag.addEventListener('dblclick', (event) => {
+   if(event.target.style.backgroundColor == 'yellow'){
+       event.target.removeAttribute('style')
+   }else{
+    event.target.style.backgroundColor = 'yellow'
+   }
+  
+});
+navTag.addEventListener('click', (event) => {event.preventDefault();
+  console.log("clicked on navlink");}
+  );
+
 
 //keydown and up
 
@@ -28,8 +38,13 @@ body.addEventListener('wheel', function alertMeOnce(){
 
 let BusBanner = document.querySelector(".intro > img" );
 BusBanner.addEventListener('drag' ,(event) => {
-    event.target.style.transform = 'scale(0.75)'
-})
+    if(event.target.style.transform == 'scale(0.75)'){
+        event.target.removeAttribute('style')
+    }else{
+        event.target.style.transform = 'scale(0.75)'}   
+ });
+
+
 
 //mouseover
 
@@ -38,7 +53,10 @@ let header2 = document.querySelectorAll('.home .text-content h2');
 for (i = 0; i < header2.length; i++) {
     header2[i].addEventListener('mouseover', function(event) {
         event.target.style.color = 'red';
-        });
+    })
+    header2[i].addEventListener('mouseout', function(event) {
+      event.target.style.color = 'black';
+    })        
 }
 
 //click
@@ -66,3 +84,7 @@ window.addEventListener('load', function alertMeOnce() {
     alert('Page is fully loaded')
     window.removeEventListener('load', alertMeOnce);
 });
+
+
+
+
